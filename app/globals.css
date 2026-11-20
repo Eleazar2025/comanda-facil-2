@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/*
+ * Theme based on 01-design-system.png.
+ * Only the tokens below exist: the default Tailwind palette, sizes and shadows are removed.
+ */
+
+/* Primitives: color ramps */
+@theme {
+  --color-*: initial;
+
+  --color-red-50: #fef2f1;
+  --color-red-100: #fde1de;
+  --color-red-200: #fbc7c1;
+  --color-red-300: #f7a29a;
+  --color-red-400: #f17468;
+  --color-red-500: #e54a3b;
+  --color-red-600: #cc3323;
+  --color-red-700: #a8281b;
+  --color-red-800: #86231a;
+  --color-red-900: #6e1f19;
+
+  --color-orange-50: #fff6ed;
+  --color-orange-100: #ffe9d3;
+  --color-orange-200: #ffcfa3;
+  --color-orange-300: #ffae6b;
+  --color-orange-400: #fa8b3c;
+  --color-orange-500: #f2711c;
+  --color-orange-600: #dd5a0f;
+  --color-orange-700: #b7440d;
+  --color-orange-800: #923612;
+  --color-orange-900: #772e12;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde58a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f2a60d;
+  --color-amber-600: #d0850a;
+  --color-amber-700: #a8650d;
+  --color-amber-800: #895011;
+  --color-amber-900: #714212;
+
+  --color-stone-50: #faf8f7;
+  --color-stone-100: #f2eeec;
+  --color-stone-200: #e3dcd9;
+  --color-stone-300: #ccc1bc;
+  --color-stone-400: #a89c96;
+  --color-stone-500: #83766f;
+  --color-stone-600: #665a54;
+  --color-stone-700: #4a413c;
+  --color-stone-800: #332c29;
+  --color-stone-900: #211c1a;
+
+  --color-green-50: #effaf3;
+  --color-green-100: #d7f2e1;
+  --color-green-200: #a9e4c1;
+  --color-green-500: #22a35a;
+  --color-green-600: #178048;
+  --color-green-700: #116832;
+  --color-green-800: #0d5228;
+  --color-green-900: #0a4020;
+
+  --color-blue-50: #eef5ff;
+  --color-blue-100: #d9e9ff;
+  --color-blue-200: #b3d3ff;
+  --color-blue-500: #2f7de0;
+  --color-blue-600: #2464b8;
+  --color-blue-700: #1d4f93;
+  --color-blue-800: #1a3f73;
+  --color-blue-900: #152f55;
+}
+
+/* Semantic tokens: light theme (default) */
+@theme {
+  /* Background */
+  --color-canvas: #faf8f7;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-sidebar: #ffffff;
+  --color-input: #faf8f7;
+
+  /* Border */
+  --color-line: #e3dcd9;
+  --color-line-subtle: #f2eeec;
+  --color-line-focus: #e54a3b;
+
+  /* Text */
+  --color-fg-primary: #211c1a;
+  --color-fg-secondary: #665a54;
+  --color-fg-tertiary: #a89c96;
+  --color-fg-inverse: #ffffff;
+  --color-fg-brand: #cc3323;
+
+  /* Brand */
+  --color-brand-primary: #e54a3b;
+  --color-brand-primary-hover: #cc3323;
+  --color-brand-primary-active: #a8281b;
+  --color-brand-on-primary: #ffffff;
+  --color-brand-accent-orange: #f2711c;
+  --color-brand-accent-amber: #f2a60d;
+
+  /* Icon */
+  --color-icon-default: #83766f;
+  --color-icon-muted: #ccc1bc;
+  --color-icon-on-brand: #ffffff;
+  --color-icon-brand: #e54a3b;
+
+  /* Action */
+  --color-action-danger: #cc3323;
+  --color-action-danger-hover: #a8281b;
+
+  /* Status */
+  --color-status-success-bg: #effaf3;
+  --color-status-success-text: #116832;
+  --color-status-success-border: #a9e4c1;
+  --color-status-warning-bg: #fffbeb;
+  --color-status-warning-text: #895011;
+  --color-status-warning-border: #fde58a;
+  --color-status-danger-bg: #fef2f1;
+  --color-status-danger-text: #a8281b;
+  --color-status-danger-border: #fbc7c1;
+  --color-status-info-bg: #eef5ff;
+  --color-status-info-text: #1d4f93;
+  --color-status-info-border: #b3d3ff;
+  --color-status-neutral-bg: #f2eeec;
+  --color-status-neutral-text: #4a413c;
+  --color-status-neutral-border: #e3dcd9;
+}
+
+/* Semantic tokens: dark theme (follows the system preference) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas: #18181b;
+    --color-surface: #18181b;
+    --color-surface-elevated: #222225;
+    --color-sidebar: #18181b;
+    --color-input: #222225;
+
+    --color-line: #333337;
+    --color-line-subtle: #2a2a2e;
+    --color-line-focus: #f17468;
+
+    --color-fg-primary: #f5f5f7;
+    --color-fg-secondary: #b8b8bf;
+    --color-fg-tertiary: #7a7a82;
+    --color-fg-inverse: #18181b;
+    --color-fg-brand: #f17468;
+
+    --color-brand-primary: #e54a3b;
+    --color-brand-primary-hover: #f17468;
+    --color-brand-primary-active: #f7a29a;
+    --color-brand-on-primary: #ffffff;
+    --color-brand-accent-orange: #fa8b3c;
+    --color-brand-accent-amber: #fcd34d;
+
+    --color-icon-default: #9999a1;
+    --color-icon-muted: #595961;
+    --color-icon-on-brand: #ffffff;
+    --color-icon-brand: #f17468;
+
+    --color-action-danger: #e54a3b;
+    --color-action-danger-hover: #f17468;
+
+    --color-status-success-bg: #212b24;
+    --color-status-success-text: #a9e4c1;
+    --color-status-success-border: #22a35a;
+    --color-status-warning-bg: #2e261c;
+    --color-status-warning-text: #fde58a;
+    --color-status-warning-border: #fbbf24;
+    --color-status-danger-bg: #301f1f;
+    --color-status-danger-text: #fbc7c1;
+    --color-status-danger-border: #f17468;
+    --color-status-info-bg: #1f2433;
+    --color-status-info-text: #b3d3ff;
+    --color-status-info-border: #2f7de0;
+    --color-status-neutral-bg: #2a2a2e;
+    --color-status-neutral-text: #b8b8bf;
+    --color-status-neutral-border: #333337;
+  }
+}
+
+/* Fonts (loaded in layout.tsx via next/font) */
+@theme inline {
+  --font-*: initial;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+}
+
+/* Typography scale: size and line-height. Weight comes from font-* utilities. */
+@theme {
+  --text-*: initial;
+  --text-display: 40px;
+  --text-display--line-height: 48px;
+  --text-h2: 28px;
+  --text-h2--line-height: 36px;
+  --text-h3: 20px;
+  --text-h3--line-height: 28px;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 16px;
+}
+
+/*
+ * Spacing: the base unit is 1px, so the utility number is the pixel value
+ * (p-8 = 8px). Scale: 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64.
+ */
+@theme {
+  --spacing: 1px;
+}
+
+/* Elevation (blur values estimated from the image) */
+@theme {
+  --shadow-*: initial;
+  --shadow-xs: 0 1px 2px 0 rgb(33 28 26 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(33 28 26 / 0.1), 0 1px 2px -1px rgb(33 28 26 / 0.1);
+  --shadow-md: 0 4px 8px -2px rgb(33 28 26 / 0.1), 0 2px 4px -2px rgb(33 28 26 / 0.06);
+  --shadow-lg: 0 12px 24px -4px rgb(33 28 26 / 0.12), 0 4px 8px -4px rgb(33 28 26 / 0.06);
+  --shadow-brand-glow: 0 4px 16px 0 rgb(229 74 59 / 0.25);
+}
