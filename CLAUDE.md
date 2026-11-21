@@ -37,7 +37,7 @@ Referência visual: `01-design-system.png`. Os tokens ficam todos em `app/global
 
 - **Cores:** classes semânticas, não as rampas primitivas (`red-500` etc.). Nomes: `canvas`, `surface`, `surface-elevated`, `sidebar`, `input` (fundos); `line`, `line-subtle`, `line-focus` (bordas); `fg-primary|secondary|tertiary|inverse|brand` (texto); `brand-*`; `icon-*`; `action-*`; `status-<tipo>-<bg|text|border>`. O modo escuro troca os valores das mesmas variáveis, então não use `dark:` nesses tokens.
 - **Fontes:** `font-display` (títulos grandes) e `font-sans` (padrão). Tamanhos: `text-display`, `text-h2`, `text-h3`, `text-body-lg|md|sm` (só tamanho e altura de linha; o peso vai à parte).
-- **Espaçamento:** a unidade base é 1px, então o número da classe é o valor em px (`p-8`). Use só os valores da escala do design.
+- **Espaçamento:** a unidade base é a padrão do Tailwind (4px): o número da classe é o valor em px dividido por 4 (`p-4` = 16px, `gap-0.5` = 2px, `w-83.75` = 335px). Use só os valores da escala do design (2, 4, 8, 12, 16, 20, 24, 32, 40, 48 e 64px) e nunca valores entre colchetes.
 - **Sombras:** `shadow-xs|sm|md|lg|brand-glow`.
 
 ### Regras
@@ -48,6 +48,19 @@ Referência visual: `01-design-system.png`. Os tokens ficam todos em `app/global
 - Links de âncora (ex.: "Como funciona" no menu da landing) rolam a página suavemente até a seção, sem que o menu fixo cubra o título da seção.
 - Enquanto um conteúdo carrega, mostre um estado de carregamento com o formato do conteúdo e faça o conteúdo aparecer com transição suave.
 - Respeite a configuração de movimento reduzido do sistema: para quem a ativou, desligue as animações e a rolagem suave.
+
+## Componentes do design system (reutilizáveis)
+
+Estes componentes ficam em `app/components/<Nome>.tsx` (export default) e aparecem em `/preview`, com uma instância de cada variante (código em `app/preview/`). **Eles são reutilizáveis: toda tela nova deve usá-los em vez de criar outros iguais ou parecidos.** Se faltar uma variante, adicione-a ao componente existente (e à `/preview`) em vez de criar um novo. Leia o arquivo do componente para ver as props.
+
+- **Ações:** `Button` (variant `primary|secondary|ghost|danger`, size `md|sm`, `icon`), `IconButton` (tone `default|danger`, shape `square|round`; `label` é obrigatório).
+- **Formulário:** `Input` (com `label` e `error`), `MaskedInput` (máscaras brasileiras: `telefone`, `cpf`, `cnpj`, `cep`, `data`, `valor`; use sempre que o campo for um desses dados), `Dropdown` (select nativo com `options`), `Toggle`.
+- **Dados e status:** `Badge` (tone `neutral|success|warning|danger|info`), `Table` (genérica, com `columns` e `rows`), `PageHeader`, `EmptyState`.
+- **Navegação:** `Sidebar`, `SidebarNavItem`, `FilterTab`, `Tab`, `AccordionHeader`, `Pagination` (controlada: `page`, `totalPages`, `onPageChange`).
+- **Cards:** `OrderCard`, `CategoryCard`, `MesaCard`, `PlanUsageCard`, `UpgradeCard`.
+- **Modais:** `ModalContainer` e `ConfirmationModal`. São só o contêiner visual; o fundo escuro e o posicionamento ficam por conta da tela.
+
+Os ícones são da família Lucide (`react-icons/lu`) e entram por prop como componente (`icon={LuPlus}`). Só `Toggle` e `AccordionHeader` têm estado próprio (`"use client"`).
 
 ## Parent-directory note
 

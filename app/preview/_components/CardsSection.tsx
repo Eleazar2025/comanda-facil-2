@@ -21,7 +21,7 @@ export default function CardsSection() {
       <PreviewSection title="OrderCard">
         <PreviewVariant
           label="default (passe o mouse para ver o hover)"
-          className="w-full max-w-72"
+          className="w-full max-w-71.25"
         >
           <OrderCard
             title="Mesa 56"
@@ -30,7 +30,7 @@ export default function CardsSection() {
             total="R$ 6,00"
           />
         </PreviewVariant>
-        <PreviewVariant label='statusTone="success"' className="w-full max-w-72">
+        <PreviewVariant label='statusTone="success"' className="w-full max-w-71.25">
           <OrderCard
             title="Mesa 12"
             status="Concluído"
