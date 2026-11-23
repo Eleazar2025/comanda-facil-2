@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import OrdersBoard from "./_components/OrdersBoard";
 import OrdersHeader from "./_components/OrdersHeader";
-import PanelShell from "./_components/PanelShell";
+import PanelShell from "../components/PanelShell";
 
 export const metadata: Metadata = {
   title: "Pedidos | Comanda Fácil",

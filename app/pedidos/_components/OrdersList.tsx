@@ -5,9 +5,10 @@ import { LuClipboardList } from "react-icons/lu";
 import EmptyState from "../../components/EmptyState";
 import OrderCard from "../../components/OrderCard";
 import Pagination from "../../components/Pagination";
-import { ORDER_STATUS } from "../_data/orders";
+import { ORDER_STATUS, formatCurrency, getItemsCount, getItemsSummary, getOrderTotal } from "../_data/orders";
 import type { Order } from "../_data/orders";
 import OrderCardSkeleton from "./OrderCardSkeleton";
+import OrderDetailsModal from "./OrderDetailsModal";
 
 // Card size (w-71.25 × h-48.5) and grid gap (gap-4), in px, used to count how many cards fit.
 const CARD_WIDTH = 285;
@@ -25,6 +26,7 @@ export default function OrdersList({ orders, loading = false }: OrdersListProps)
   const areaRef = useRef<HTMLDivElement>(null);
   const [perPage, setPerPage] = useState(MOBILE_PER_PAGE);
   const [page, setPage] = useState(1);
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
 
   // On large screens, shows only as many cards as fit in the visible area (no scrolling).
   useLayoutEffect(() => {
@@ -85,9 +87,10 @@ export default function OrdersList({ orders, loading = false }: OrdersListProps)
                 title={`Mesa ${order.table}`}
                 status={ORDER_STATUS[order.status].label}
                 statusTone={ORDER_STATUS[order.status].tone}
-                itemsCount={order.itemsCount}
-                itemsSummary={order.itemsSummary}
-                total={order.total}
+                itemsCount={getItemsCount(order)}
+                itemsSummary={getItemsSummary(order)}
+                total={formatCurrency(getOrderTotal(order))}
+                onDetails={() => setSelectedOrder(order)}
               />
             ))}
           </div>
@@ -99,6 +102,8 @@ export default function OrdersList({ orders, loading = false }: OrdersListProps)
           <Pagination page={currentPage} totalPages={totalPages} onPageChange={setPage} />
         ) : null}
       </div>
+
+      <OrderDetailsModal order={selectedOrder} onClose={() => setSelectedOrder(null)} />
     </div>
   );
 }

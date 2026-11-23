@@ -10,6 +10,8 @@ export interface TableColumn<T> {
   header: string;
   cell: (row: T) => ReactNode;
   align?: keyof typeof ALIGN_STYLES;
+  /** Hides the column on small screens (below the sm breakpoint). */
+  hiddenOnMobile?: boolean;
 }
 
 interface TableProps<T> {
@@ -36,7 +38,7 @@ export default function Table<T>({
               <th
                 key={column.header}
                 scope="col"
-                className={`px-4 py-3 text-body-sm font-semibold whitespace-nowrap text-fg-secondary ${ALIGN_STYLES[column.align ?? "left"]}`}
+                className={`px-4 py-3 text-body-sm font-semibold whitespace-nowrap text-fg-secondary ${ALIGN_STYLES[column.align ?? "left"]} ${column.hiddenOnMobile ? "hidden sm:table-cell" : ""}`}
               >
                 {column.header}
               </th>
@@ -49,7 +51,7 @@ export default function Table<T>({
               {columns.map((column) => (
                 <td
                   key={column.header}
-                  className={`px-4 py-4 text-body-md font-semibold text-fg-primary ${ALIGN_STYLES[column.align ?? "left"]}`}
+                  className={`px-4 py-4 text-body-md font-semibold text-fg-primary ${ALIGN_STYLES[column.align ?? "left"]} ${column.hiddenOnMobile ? "hidden sm:table-cell" : ""}`}
                 >
                   {column.cell(row)}
                 </td>

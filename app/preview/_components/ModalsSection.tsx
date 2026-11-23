@@ -10,6 +10,16 @@ export default function ModalsSection() {
         <PreviewVariant label="default" className="w-full max-w-md">
           <ModalContainer title="Título do Modal">Conteúdo do modal</ModalContainer>
         </PreviewVariant>
+        <PreviewVariant label='size="compact" (400px em telas grandes)' className="w-full">
+          <ModalContainer size="compact" title="Título do Modal">
+            Conteúdo do modal
+          </ModalContainer>
+        </PreviewVariant>
+        <PreviewVariant label='size="wide" (500px em telas grandes)' className="w-full">
+          <ModalContainer size="wide" title="Título do Modal">
+            Conteúdo do modal
+          </ModalContainer>
+        </PreviewVariant>
       </PreviewSection>
 
       <PreviewSection title="ConfirmationModal">

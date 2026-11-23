@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { LuClipboardList, LuMenu, LuPackage, LuTag, LuUsers, LuX } from "react-icons/lu";
-import IconButton from "../../components/IconButton";
-import Sidebar from "../../components/Sidebar";
+import IconButton from "./IconButton";
+import Sidebar from "./Sidebar";
 
 const SIDEBAR_ITEMS = [
   { href: "/pedidos", label: "Pedidos", icon: LuClipboardList },
